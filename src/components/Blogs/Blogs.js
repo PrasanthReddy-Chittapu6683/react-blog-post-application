@@ -55,7 +55,6 @@ function Blogs({ name }) {
             alert(`No Data found for Title : ${titleName.current.value}`)
         }
         setBlogList(data)
-        // titleName.current.value = ""
     }
     const clearUser = (e) => {
         e.preventDefault();
@@ -68,7 +67,6 @@ function Blogs({ name }) {
         titleName.current.value = ""
         setBlogList([]);
     }
-    // let user = localStorage.length > 0 ? localStorage.getItem('userName') : '';
     if (localStorage.length == 0) {
         history.push('/login')
     }
@@ -112,12 +110,7 @@ function Blogs({ name }) {
                                 <p> {blog.body}  ... </p>
                                 <small className="blog-author-name">
                                     <FontAwesomeIcon title="View my Website" className='button-icon' icon={faUser} />
-                                    {/* {
-                                        userDetails ? userDetails.map(user => (
-                                            <div>({user.id} === {blog.userId}) ? {user.name} </div>
-                                        ))
-                                            : <></>
-                                    } */}
+
                                     {blog.userName}
                                 </small>
                             </div>

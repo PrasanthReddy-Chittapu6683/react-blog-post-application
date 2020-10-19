@@ -8,23 +8,22 @@ import { useHistory } from 'react-router-dom';
 
 
 function Home() {
-    // const classes = useStyles();
+
 
     const [loggedUser, setloggedUser] = useState('')
     const history = useHistory();
     const redirectToBlog = (e) => {
         e.preventDefault();
         history.push('/blogs')
-        // type === 'users' ? history.push('/users') : history.push('/blogs')
+
     }
     const redirectToUsers = (e) => {
         e.preventDefault();
         history.push('/users')
-        // type === 'users' ? history.push('/users') : history.push('/blogs')
+
     }
 
     useEffect(() => {
-        // setloggedUser(localStorage.length > 0 ? localStorage.getItem('userName') : '');
 
         if (localStorage.length == 0) {
             history.push('/login')

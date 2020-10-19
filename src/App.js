@@ -11,26 +11,16 @@ import Users from './components/Users/Users';
 
 
 function App() {
-  // const [{ }, dispatch] = useStateValue();
+
   const [loggedUser, setloggedUser] = useState('')
   useEffect(() => {
 
-    // if (authUser) {
-    // dispatch({
-    //   type: 'SET_USER',
-    //   user: authUser
-    // })
+
     setloggedUser(localStorage.length > 0 ? localStorage.getItem('userName') : '')
     if (localStorage.length < 0) {
       localStorage.removeItem("userName")
     }
-    // } else {
-    // dispatch({
-    //   type: 'SET_USER',
-    //   user: null
-    // })
 
-    // }
 
     return () => {
 
@@ -67,10 +57,7 @@ function App() {
             <Header />
             <Home />
           </Route>
-          {/* <Route path='/'>
-            <Header />
-            <Home />
-          </Route> */}
+
 
         </div>
       </div>

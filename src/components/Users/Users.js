@@ -21,15 +21,11 @@ function Users({ name }) {
     }
 
 
-    // const [usersDataList] = useCustomHook('users');
+
     const [usersDataList, blogsDetails] = useCustomHook('All');
     const usersList = usersDataList;
     const blogs = blogsDetails;
-    // if (usersList && usersList.length > 0 && usersData.length === 0) {
 
-
-
-    // }
 
     if (usersList && usersList.length > 0 && blogs && blogs.length > 0 && usersData.length === 0) {
         for (let usr of usersList) {

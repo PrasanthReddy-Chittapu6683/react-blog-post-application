@@ -52,12 +52,7 @@ function UserBlogs() {
                                 <p> {blog.body}  ... </p>
                                 <small className="user-blog-author-name">
                                     <FontAwesomeIcon title="View my Website" className='button-icon' icon={faUser} />
-                                    {/* {
-                                        userDetails ? userDetails.map(user => (
-                                            <div>({user.id} === {blog.userId}) ? {user.name} </div>
-                                        ))
-                                            : <></>
-                                    } */}
+
                                     {usersList ? usersList[0]?.name : null}
                                 </small>
                             </div>

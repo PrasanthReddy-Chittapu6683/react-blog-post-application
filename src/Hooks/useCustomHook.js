@@ -13,8 +13,7 @@ function useCustomHook(type, id = 0) {
         const blogsAPI = axios.get(apiURL + 'posts');
         axios.all([usersAPI, blogsAPI]).then(
             axios.spread((...allData) => {
-                // users(allData[0])
-                // blogs(allData[1])
+
                 setUsersList(allData[0]?.data)
                 setBlogsList(allData[1]?.data)
             })
@@ -29,18 +28,13 @@ function useCustomHook(type, id = 0) {
         })
     }
     const fechUsersBlogsById = async (idVal) => {
-        // HTTPServices.getBlogByUser(id).then(response => {
-        //     setBlogsList(response.data)
-        // }).catch(error => {
-        //     console.log(error)
-        // })
+
 
         const usersAPI = axios.get(apiURL + `users?id=${idVal}`);
         const blogsAPI = axios.get(apiURL + `posts?userId=${idVal}`);
         axios.all([usersAPI, blogsAPI]).then(
             axios.spread((...allData) => {
-                // users(allData[0])
-                // blogs(allData[1])
+
                 setUsersList(allData[0]?.data)
                 setBlogsList(allData[1]?.data)
             })
@@ -80,10 +74,6 @@ function useCustomHook(type, id = 0) {
 
 }
 
-
-
 export default useCustomHook
-
-
 
 const initialState = [];

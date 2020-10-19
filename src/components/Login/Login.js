@@ -54,31 +54,16 @@ function Login() {
     useEffect(() => {
 
         setuserDetails(usersData)
-
-        // HTTPServices.getUser().then(response => {
-        //     setUsersList(response.data)
-        // }).catch(error => {
-        //     console.log(error)
-        // })
         return () => {
-            // cleanup
         }
     }, [usersData])
     return (
         <div className="login">
             <Link to='/'>
-                {/* <img className="login__image" alt='Logo' src='https://upload.wikimedia.org/wikipedia/commons/3/31/Blogger.svg' /> */}
+
                 <FontAwesomeIcon title="View my Website" className='button-icon login__image' icon={faBlog} />
             </Link>
             <div className="login__container">
-                {/* <div>
-                    {LoginError.message ?
-                        <h4 className="login__errornotify">{LoginError.message} <span className="login__closeError" onClick={e => setLoginError('')}>X</span></h4>
-
-
-                        : null}
-
-                </div> */}
                 <h1>Sign In</h1>
                 <form>
                     <h5>E-mail</h5>
