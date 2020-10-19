@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Header.css'
 // import SearchIcon from '@material-ui/icons/Search'
 // import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart'
@@ -11,13 +11,25 @@ import LocalPostOfficeIcon from '@material-ui/icons/LocalPostOffice';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBlog } from '@fortawesome/free-solid-svg-icons';
-function Header({ name }) {
+function Header() {
     const history = useHistory();
+    const [loggedUser, setloggedUser] = useState('')
+
     const logout = () => {
         localStorage.removeItem("user")
         localStorage.removeItem("userName")
         history.push('/login')
     }
+    useEffect(() => {
+        if (localStorage.length == 0) {
+            history.push('/login')
+        } else {
+            setloggedUser(localStorage.getItem('userName'))
+        }
+        return () => {
+
+        }
+    }, [])
 
     return (
         <div>
@@ -60,7 +72,7 @@ function Header({ name }) {
                     <Link to='/login'>
                         <div className="herader__option__username">
                             <span className="header__optionLineOne"> Hello  </span>
-                            <span className="header__optionLineTwo"> {name ? name : 'Guest'} </span>
+                            <span className="header__optionLineTwo"> {loggedUser ? loggedUser : 'Guest'} </span>
                         </div>
                     </Link>
 

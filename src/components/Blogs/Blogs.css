@@ -76,6 +76,7 @@
     transition: box-shadow 0.5s;
     will-change: transform;
     margin-top: 20px;
+    margin-bottom: 20px;
     padding: 10px;
 }
 .blog-post-details {

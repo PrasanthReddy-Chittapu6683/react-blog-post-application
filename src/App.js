@@ -6,6 +6,7 @@ import Blogs from './components/Blogs/Blogs';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
+import UserBlogs from './components/UserBlogs/UserBlogs';
 import Users from './components/Users/Users';
 
 
@@ -44,23 +45,28 @@ function App() {
             <Route path='/login'>
               <Login />
             </Route>
-            <Route path='/home'>
-              <Header name={loggedUser} />
-              <Home name={loggedUser} />
-            </Route>
+
             <Route path='/users'>
-              <Header name={loggedUser} />
-              <Users name={loggedUser} />
+              <Header />
+              <Users />
             </Route>
             <Route path='/blogs'>
-              <Header name={loggedUser} />
-              <Blogs name={loggedUser} />
+              <Header />
+              <Blogs />
             </Route>
             <Route path="/blog/:id">
-              <Header name={loggedUser} />
-              <BlogDetails name={loggedUser} />
+              <Header />
+              <BlogDetails />
+            </Route>
+            <Route path="/user/:id">
+              <Header />
+              <UserBlogs />
             </Route>
           </Switch>
+          <Route path='/home'>
+            <Header />
+            <Home />
+          </Route>
           {/* <Route path='/'>
             <Header />
             <Home />

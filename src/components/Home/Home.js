@@ -7,10 +7,10 @@ import { useHistory } from 'react-router-dom';
 
 
 
-function Home({ name }) {
+function Home() {
     // const classes = useStyles();
 
-    // const [loggedUser, setloggedUser] = useState('')
+    const [loggedUser, setloggedUser] = useState('')
     const history = useHistory();
     const redirectToBlog = (e) => {
         e.preventDefault();
@@ -25,8 +25,11 @@ function Home({ name }) {
 
     useEffect(() => {
         // setloggedUser(localStorage.length > 0 ? localStorage.getItem('userName') : '');
-        if (name === '') {
+
+        if (localStorage.length == 0) {
             history.push('/login')
+        } else {
+            setloggedUser(localStorage.getItem('userName'))
         }
         return () => {
         }
@@ -37,7 +40,7 @@ function Home({ name }) {
     return (
         <div className="home">
             <div className="home__container">
-                <h3>Hello User, {name}</h3>
+                <h3>Hello User, {loggedUser}</h3>
                 <div className="home__row">
 
                     <Button variant="contained" size="large" color="primary" onClick={redirectToUsers}>

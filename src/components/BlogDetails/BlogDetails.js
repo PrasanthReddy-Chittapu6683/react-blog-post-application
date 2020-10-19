@@ -24,7 +24,7 @@ function BlogDetails({ name }) {
     const blogInfo = blogs ? blogs[0] : null;
 
     useEffect(() => {
-        if (name === '') {
+        if (localStorage.length == 0) {
             history.push('/login')
         } else {
 

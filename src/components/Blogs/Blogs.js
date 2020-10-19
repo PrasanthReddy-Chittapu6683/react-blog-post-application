@@ -69,7 +69,7 @@ function Blogs({ name }) {
         setBlogList([]);
     }
     // let user = localStorage.length > 0 ? localStorage.getItem('userName') : '';
-    if (name === '') {
+    if (localStorage.length == 0) {
         history.push('/login')
     }
     return (

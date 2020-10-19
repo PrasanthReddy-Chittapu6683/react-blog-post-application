@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Avatar } from '@material-ui/core'
+import { Avatar, Badge } from '@material-ui/core'
 import './Users.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUsers, faEye } from '@fortawesome/free-solid-svg-icons'
 import { Button } from '@material-ui/core';
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import SearchIcon from '@material-ui/icons/Search'
 import useCustomHook from '../../Hooks/useCustomHook'
 import ClearIcon from '@material-ui/icons/Clear';
@@ -21,12 +21,24 @@ function Users({ name }) {
     }
 
 
-    const [usersDataList] = useCustomHook('users');
+    // const [usersDataList] = useCustomHook('users');
+    const [usersDataList, blogsDetails] = useCustomHook('All');
     const usersList = usersDataList;
-    if (usersList && usersList.length > 0 && usersData.length === 0) {
+    const blogs = blogsDetails;
+    // if (usersList && usersList.length > 0 && usersData.length === 0) {
+
+
+
+    // }
+
+    if (usersList && usersList.length > 0 && blogs && blogs.length > 0 && usersData.length === 0) {
+        for (let usr of usersList) {
+            let userData = blogsDetails.filter(x => x.userId === usr.id)
+            usr.blogsCount = userData?.length;
+
+        }
         setUsersData(usersList)
     }
-
     const searchUser = (e) => {
         e.preventDefault();
         debugger;
@@ -40,11 +52,11 @@ function Users({ name }) {
 
 
     useEffect(() => {
-        if (name === '') {
+        if (localStorage.length == 0) {
             history.push('/login')
         }
 
-    }, [name])
+    }, [])
     const clearUser = (e) => {
         e.preventDefault();
         authorName.current.value = ""
@@ -69,9 +81,13 @@ function Users({ name }) {
                             <Avatar src={`https://avatars.dicebear.com/api/human/${user.id}_${user.username}.svg`} />
                             <span className="user-details-name"> {user.name} </span>
                             <div className="user-bolgs-link">
-                                <Button color="primary" onClick={redirectToUserBlogs}>
-                                    <FontAwesomeIcon title="View my Website" className='button-icon' icon={faEye} /> View Blogs
-                                </Button>
+                                <Link to={"/user/" + user.id}>
+                                    <Button color="primary"  >
+                                        <Badge badgeContent={user?.blogsCount} color="primary">
+                                            <FontAwesomeIcon title="View my Website" className='button-icon' icon={faEye} /> View Blogs
+                                        </Badge>
+                                    </Button>
+                                </Link>
                             </div>
                         </div>
                     )) : <></>

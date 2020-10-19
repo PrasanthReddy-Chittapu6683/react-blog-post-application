@@ -55,6 +55,7 @@
 .button-icon {
     padding-left: 15px;
     padding-right: 2px;
+    margin-top: 0px !important;
 }
 .email {
     color: rgb(37, 136, 202);

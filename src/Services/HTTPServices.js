@@ -11,6 +11,9 @@ const getBlogs = () => {
 const getBlogById = id => {
     return axios.get(`/posts?id=${id}`);
 };
+const getBlogByUser = id => {
+    return axios.get(`/posts?userId=${id}`);
+};
 
 const getUserById = id => {
     return axios.get(`/users?id=${id}`);
@@ -21,4 +24,4 @@ const getUserById = id => {
 // const getSpreadData = (fullData) => {
 //     return axios.spread(...fullData)
 // }
-export default { getUser, getBlogs, getBlogById, getUserById }
+export default { getUser, getBlogs, getBlogById, getUserById, getBlogByUser }

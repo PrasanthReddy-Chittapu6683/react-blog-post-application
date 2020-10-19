@@ -64,3 +64,13 @@
 .user-filter-search-input:hover {
     border: 1px solid #009acd;
 }
+.MuiBadge-root {
+    border: 1px solid lightblue;
+    padding: 4px;
+}
+.button-icon {
+    margin-top: 5px;
+}
+.MuiBadge-colorPrimary {
+    background-color: #cd0000b5 !important;
+}

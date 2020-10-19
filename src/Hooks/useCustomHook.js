@@ -28,13 +28,23 @@ function useCustomHook(type, id = 0) {
             console.log(error)
         })
     }
-    const fechUsersById = async () => {
-        HTTPServices.getUserById(id).then(response => {
+    const fechUsersBlogsById = async (idVal) => {
+        // HTTPServices.getBlogByUser(id).then(response => {
+        //     setBlogsList(response.data)
+        // }).catch(error => {
+        //     console.log(error)
+        // })
 
-            setUsersList(response.data)
-        }).catch(error => {
-            console.log(error)
-        })
+        const usersAPI = axios.get(apiURL + `users?id=${idVal}`);
+        const blogsAPI = axios.get(apiURL + `posts?userId=${idVal}`);
+        axios.all([usersAPI, blogsAPI]).then(
+            axios.spread((...allData) => {
+                // users(allData[0])
+                // blogs(allData[1])
+                setUsersList(allData[0]?.data)
+                setBlogsList(allData[1]?.data)
+            })
+        )
     }
     const fechBlogs = async () => {
         HTTPServices.getBlogs().then(response => {
@@ -59,8 +69,8 @@ function useCustomHook(type, id = 0) {
             fetchAllData()
         } else if (type === 'blogsbyid') {
             fechBlogsById(id);
-        } else if (type === 'userbyid' && id > 0) {
-            fechUsersById();
+        } else if (type === 'BLOGS_BY_USER' && id > 0) {
+            fechUsersBlogsById(id);
         }
         return () => {
         }
