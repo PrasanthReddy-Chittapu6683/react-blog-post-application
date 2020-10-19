@@ -1,0 +1,66 @@
+.users {
+    margin: 20px;
+}
+.users-title {
+    text-align: center;
+    border: 1px solid #d3d3d3;
+    padding: 10px;
+}
+.users-list {
+    padding: 40px;
+    margin: 20px 0;
+    border: 1px solid #d3d3d3;
+    position: relative;
+    background-color: #fff;
+}
+.user-details {
+    border: 1px solid #add8e6;
+    padding: 5px;
+    display: flex;
+    flex: 1;
+    border-radius: 10px;
+    margin: 5px;
+}
+.user-details-name {
+    margin-left: 5px;
+    margin-top: 12px;
+    width: 50%;
+    font-weight: 600;
+    font-size: 12px;
+}
+.user-bolgs-link {
+    display: flex;
+    flex-direction: row-reverse;
+
+    margin-right: 10px;
+    color: #ff5f00;
+    justify-content: center;
+    float: right;
+    width: 50%;
+    align-items: center;
+}
+.user-details .MuiButton-textPrimary {
+    color: #009acd;
+    /* border: 1px solid #add8e6; */
+}
+.user-filter {
+    display: flex;
+    flex: 1 1;
+    align-items: center;
+    border-radius: 24px;
+}
+.user-filter-search-input {
+    height: 10px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e1e1e1;
+}
+.user-filter-search-icon {
+    padding: 5px;
+    height: 22px !important;
+    background-color: #009acd;
+    color: #fff;
+}
+.user-filter-search-input:hover {
+    border: 1px solid #009acd;
+}

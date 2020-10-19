@@ -1,25 +1,74 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css';
+import BlogDetails from './components/BlogDetails/BlogDetails';
+import Blogs from './components/Blogs/Blogs';
+import Header from './components/Header/Header';
+import Home from './components/Home/Home';
+import Login from './components/Login/Login';
+import Users from './components/Users/Users';
+
 
 function App() {
+  // const [{ }, dispatch] = useStateValue();
+  const [loggedUser, setloggedUser] = useState('')
+  useEffect(() => {
+
+    // if (authUser) {
+    // dispatch({
+    //   type: 'SET_USER',
+    //   user: authUser
+    // })
+    setloggedUser(localStorage.length > 0 ? localStorage.getItem('userName') : '')
+    if (localStorage.length < 0) {
+      localStorage.removeItem("userName")
+    }
+    // } else {
+    // dispatch({
+    //   type: 'SET_USER',
+    //   user: null
+    // })
+
+    // }
+
+    return () => {
+
+    }
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="app">
+        <div className="app__body">
+          <Switch>
+            <Route path='/login'>
+              <Login />
+            </Route>
+            <Route path='/home'>
+              <Header name={loggedUser} />
+              <Home name={loggedUser} />
+            </Route>
+            <Route path='/users'>
+              <Header name={loggedUser} />
+              <Users name={loggedUser} />
+            </Route>
+            <Route path='/blogs'>
+              <Header name={loggedUser} />
+              <Blogs name={loggedUser} />
+            </Route>
+            <Route path="/blog/:id">
+              <Header name={loggedUser} />
+              <BlogDetails name={loggedUser} />
+            </Route>
+          </Switch>
+          {/* <Route path='/'>
+            <Header />
+            <Home />
+          </Route> */}
+
+        </div>
+      </div>
+    </Router>
   );
 }
 

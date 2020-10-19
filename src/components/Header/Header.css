@@ -1,0 +1,94 @@
+.header {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #14a7da;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+a {
+    text-decoration: none;
+}
+.header__logo {
+    object-fit: contain;
+    margin: 0 1px;
+    margin-top: 0px;
+    font-size: 33px;
+    color: white;
+}
+.herader__gap {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    border-radius: 24px;
+}
+.header__optionLineOne {
+    font-size: 10px;
+}
+.header__optionLineTwo {
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.herader__option {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+.herader__option__username {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+    justify-content: center;
+}
+.herader__nav {
+    display: flex;
+    justify-content: space-evenly;
+    margin-right: 30px;
+}
+.herader__nav-right {
+    display: flex;
+    justify-content: space-evenly;
+}
+.header__basketCount {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.header__optionBasket {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+.herader__sidepanelIcon > .MuiSvgIcon-root {
+    color: white;
+    margin-top: 10px;
+    margin-left: 10px;
+    /* border: 1px solid #666; */
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 30px;
+}
+.herader__sidepanelIcon > .MuiSvgIcon-root:hover {
+    border: 1px solid white;
+}
+.headerTow {
+    background-color: #131921c4 !important;
+    height: 40px;
+}
+.headerTow > ul {
+    flex: 1;
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+}
+.header__optionLineTwo .MuiSvgIcon-root {
+    margin-bottom: -6px;
+}
