@@ -4,8 +4,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Deployement URL:
-    Open [https://prasanth-react-blogwebsite.web.app/login](Click Here) to view it in the browser.
 
+Open [Click Here](https://prasanth-react-blogwebsite.web.app/login) to view it in the browser.
+ 
 
 
 ## Available Scripts
